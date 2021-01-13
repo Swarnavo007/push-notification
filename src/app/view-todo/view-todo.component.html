@@ -1,0 +1,9 @@
+<!-- <p>view-todo works!</p> -->
+<p>To Do Lists</p>
+<ul style="list-style: none;">
+    <li *ngFor="let task of (tasks | sort)">
+        <mat-card>
+            <p>{{task.task}}</p>
+        </mat-card>
+    </li>
+</ul>

@@ -1,0 +1,15 @@
+<!-- <p>add-todo works!</p> -->
+<div class="add-container">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+            <label class="label">Task</label>
+            <input type="text" [class.is-invalid]="createForm.get('task').invalid && createForm.get('task').touched" class="form-control" formControlName='task'>
+        </div>
+        <div *ngIf="createForm.get('task').invalid && createForm.get('task').touched">
+            <small *ngIf="createForm.get('task').hasError('required')" class="text-danger">Task is required</small>
+            <small *ngIf="createForm.get('task').hasError('pattern')" class="text-danger">Task should not have special characters</small>
+        </div>
+        <button [disabled]="!createForm.valid" mat-raised-button color="primary" type="submit" class="submit">Submit</button>
+    </form>
+
+</div>
